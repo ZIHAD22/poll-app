@@ -76,6 +76,7 @@ class App extends Component {
               handleSearch={this.handleSearch}
               searchTerm={this.state.searchTerm}
               selectPoll={this.selectPoll}
+              addNewPoll={this.addNewPoll}
             />
           </Col>
           <Col lg={8}>

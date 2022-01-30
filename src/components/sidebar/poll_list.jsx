@@ -11,7 +11,7 @@ const PollList = (props) => {
         <ListGroupItem
           key={poll.id}
           onClick={() => props.selectPoll(poll.id)}
-          className="pe-auto"
+          style={{ cursor: "pointer", marginBottom: "8px" }}
         >
           {poll.title.length > 30
             ? poll.title.substr(0, 30) + "..."
