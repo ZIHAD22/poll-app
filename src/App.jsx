@@ -3,7 +3,7 @@ import shortid from "shortid";
 import { Container, Row, Col } from "reactstrap";
 
 // custom components
-import MainContant from "./components/main-contant";
+import MainContent from "./components/main-contant";
 import SideBar from "./components/sidebar";
 
 // Poll data
@@ -63,15 +63,23 @@ class App extends Component {
       selectedPoll: poll,
     });
   };
+
+  // handle search
+  handleSearch = (searchTerm) => {};
   render() {
     return (
       <Container>
-        <Row>
+        <Row className="mt-4">
           <Col lg={4}>
-            <SideBar />
+            <SideBar
+              polls={this.state.polls}
+              handleSearch={this.handleSearch}
+              searchTerm={this.state.searchTerm}
+              selectPoll={this.selectPoll}
+            />
           </Col>
           <Col lg={8}>
-            <MainContant />
+            <MainContent />
           </Col>
         </Row>
       </Container>
