@@ -98,7 +98,7 @@ class PollForm extends Component {
 
     let optionErrors = [];
     options.forEach((opt, index) => {
-      if (opt.value) {
+      if (!opt.value) {
         optionErrors[index] = "Option text Empty";
       } else if (opt.value.length > 100) {
         optionErrors[index] = "Option text is too long ";
