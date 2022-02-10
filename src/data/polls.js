@@ -5,7 +5,7 @@ const polls = [
     description:
       "There are lot of popular programming languages available. Among them what is your favorite?",
     options: [
-      { id: "14514", value: "C Programming", vote: 0 },
+      { id: "14514", value: "rube Programming", vote: 0 },
       { id: "17741", value: "Java", vote: 0 },
       { id: "41541das", value: "Javascript", vote: 0 },
       { id: "ssdas444", value: "Python", vote: 0 },

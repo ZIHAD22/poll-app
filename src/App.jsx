@@ -58,7 +58,7 @@ class App extends Component {
 
   // select poll function
   selectPoll = (pollId) => {
-    const poll = this.state.find((p) => p.id === pollId);
+    const poll = this.state.polls.find((p) => p.id === pollId);
     this.setState({
       selectedPoll: poll,
     });
@@ -66,6 +66,22 @@ class App extends Component {
 
   // handle search
   handleSearch = (searchTerm) => {};
+
+  getOpinion = (res) => {
+    const { polls } = this.state;
+    const poll = polls.find((p) => p.id === res.pollId);
+    const option = poll.options.find((o) => o.id === res.selectedOption);
+
+    poll.totalVote++;
+    option.vote++;
+    const opinion = {
+      id: shortid.generate(),
+      name: res.name,
+      selectedOption: res.selectedOption,
+    };
+    poll.opinions.push(opinion);
+    this.setState({ polls });
+  };
   render() {
     return (
       <Container>
@@ -80,7 +96,12 @@ class App extends Component {
             />
           </Col>
           <Col lg={8}>
-            <MainContent />
+            <MainContent
+              poll={this.state.selectedPoll}
+              getOpinion={this.getOpinion}
+              updatePoll={this.updatePoll}
+              deletedPoll={this.deletedPoll}
+            />
           </Col>
         </Row>
       </Container>
